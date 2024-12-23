@@ -9,7 +9,7 @@ def get_user_input():
     root.withdraw()  # Hide the root window
 
     empresa = simpledialog.askstring(title="Código da Empresa", prompt="Digite o código da empresa:")
-    mes = simpledialog.askstring(title="Mês", prompt="Digite o mês (MM/AAAA):")
+    mes = simpledialog.askstring(title="Mês", prompt="Digite o mês (MMAAAA):")
 
     return empresa, mes
 
@@ -45,14 +45,23 @@ pyautogui.press('enter')
 # Wait for 5 seconds
 time.sleep(5)
 
+# Press Ctrl + B
+pyautogui.hotkey('ctrl', 'b')
+
+time.sleep(6)
+
 # Type the company code
 pyautogui.write(empresa)
 
-# Press Tab
-pyautogui.press('tab')
-
-# Type the month
-pyautogui.write(mes)
-
-# Press Enter
 pyautogui.press('enter')
+
+# Type the date with "01" at the beginning
+pyautogui.write('01' + mes)
+
+pyautogui.press('enter')        
+
+# Wait for 1 second
+time.sleep(1)
+
+# Press Alt + F8
+pyautogui.hotkey('alt', 'f8')
