@@ -124,10 +124,10 @@ pyautogui.hotkey('win', 'r')
 time.sleep(1)
 pyautogui.write(save_path)
 pyautogui.press('enter')
-time.sleep(2)
+time.sleep(4)
 
-# Select all content in the CSV (Ctrl + A) and copy (Ctrl + C)
-pyautogui.hotkey('ctrl', 'a')
+# Select all content in the CSV (Ctrl + T) and copy (Ctrl + C)
+pyautogui.hotkey('ctrl', 't')
 time.sleep(1)
 pyautogui.hotkey('ctrl', 'c')
 time.sleep(1)
@@ -152,5 +152,27 @@ time.sleep(1)
 # Close Notepad without saving
 pyautogui.hotkey('alt', 'f4')
 time.sleep(1)
-pyautogui.press('n')  # Don't save
 
+# Open the reconciliation file
+pyautogui.hotkey('win', 'r')
+time.sleep(2)
+pyautogui.write('C:\\projeto\\planilhas\\CONCILIACAO_EMPRESA_XX_XXXX.xlsx')
+pyautogui.press('enter')
+time.sleep(5)
+
+# Go to cell A1
+pyautogui.hotkey('ctrl', 'home')
+time.sleep(1)
+
+# Paste the content (Ctrl + V)
+pyautogui.hotkey('ctrl', 'v')
+time.sleep(1)
+
+pyautogui.press('f12')
+
+time.sleep(2)
+
+save_path_1 = f'C:\\projeto\\planilhas\\balancete\\CONCILIACAO_{empresa}_{mes}'
+pyautogui.write(save_path_1)
+
+pyautogui.press('enter')
